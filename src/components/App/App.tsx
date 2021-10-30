@@ -15,7 +15,6 @@ import Board from "../Board";
 import { OrderTypeContext } from "../../context/orderTypeContext";
 
 const App: FunctionComponent = () => {
-  // const OrderContext = React.useContext(orderTypeContext) as Context;
   const [orderType, setOrderType] = React.useState<string>("");
   console.log({ orderType });
 
@@ -23,6 +22,18 @@ const App: FunctionComponent = () => {
     <>
       <OrderTypeContext.Provider value={orderType}>
         <AppStyled>
+          <header
+            style={{
+              padding: 50,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              flexWrap: "wrap",
+            }}>
+            <h1>Mon restaurant</h1>
+            <h3>ouvert de 7h à 12h</h3>
+          </header>
+          <hr />
           <Switch>
             <Route exact path="/">
               <LandingPage setOrderType={setOrderType} />
